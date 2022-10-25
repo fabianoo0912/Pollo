@@ -1,0 +1,49 @@
+#include <SFML/Graphics.hpp>
+#include "Pollo.h"
+
+
+int suma(int a, int b) 
+{
+    return a + b;
+}
+
+int main()
+
+{
+    Pollito pepe(15);
+    Pollito pio(90);
+    Pollito chiken(100);
+    Pollito plumadizimo(2.5);
+    suma(1, 2);
+    chiken.polliPio();
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+
+    sf::CircleShape cabezita(100.f);
+
+    sf::CircleShape ojitoLeft(20.f);
+
+    cabezita.setFillColor(sf::Color::Yellow);
+
+    ojitoLeft.setFillColor(sf::Color::Black);
+
+    ojitoLeft.setPosition(sf::Vector2f{ 50,50 });
+
+    while (window.isOpen())
+
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(cabezita);
+        window.draw(ojitoLeft);
+        window.display();
+    }
+
+    return 0;
+}
